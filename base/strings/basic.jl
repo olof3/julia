@@ -206,7 +206,6 @@ strwidth(s::AbstractString) = (w=0; for c in s; w += charwidth(c); end; w)
 
 isascii(c::Char) = c < Char(0x80)
 isascii(s::AbstractString) = all(isascii, s)
-isascii(s::ASCIIString) = true
 
 ## string promotion rules ##
 

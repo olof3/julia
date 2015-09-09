@@ -139,11 +139,11 @@ Linear algebra functions in Julia are largely implemented by calling functions f
 
    ``cholfact!`` is the same as :func:`cholfact`, but saves space by overwriting the input ``A``, instead of creating a copy. ``cholfact!`` can also reuse the symbolic factorization from a different matrix ``F`` with the same structure when used as: ``cholfact!(F::CholmodFactor, A)``.
 
-.. function:: ldltfact(A) -> LDLtFactorization
+.. function:: ldltfact(A) -> F
 
    .. Docstring generated from Julia source
 
-   Compute a factorization of a positive definite matrix ``A`` such that ``A=L*Diagonal(d)*L'`` where ``L`` is a unit lower triangular matrix and ``d`` is a vector with non-negative elements.
+   Compute an ``LDLt`` factorization ``F`` of a ``SymTridiagonal`` matrix ``A`` such that ``A=L*Diagonal(d)*L'`` where ``L`` is a unit lower triangular matrix and ``d`` is a vector. The main use of an ``LDLt`` factorization ``F=ldltfact(A)`` is to solving the linear system of equations ``Ax=b`` with ``F\b``\ .
 
 .. function:: ldltfact(A; shift=0, perm=Int[]) -> CHOLMOD.Factor
 
